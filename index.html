@@ -1,0 +1,553 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>iRelateDigital — Marketing for Hawaii Tow Truck Companies</title>
+  <meta name="description" content="iRelateDigital helps Hawaii tow truck companies get more calls from Google Maps, local SEO, and call-focused ads. Free tow visibility audit." />
+
+  <style>
+    :root{
+      --bg:#071022;
+      --panel:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.14);
+      --text:rgba(255,255,255,.92);
+      --muted:rgba(255,255,255,.68);
+      --brand:#22c55e;
+      --brand2:#60a5fa;
+      --radius:16px;
+      --max:980px;
+      --shadow:0 18px 55px rgba(0,0,0,.35);
+      --sans: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      margin:0;
+      font-family:var(--sans);
+      color:var(--text);
+      background:
+        radial-gradient(900px 520px at 15% 10%, rgba(34,197,94,.24), transparent 60%),
+        radial-gradient(900px 520px at 85% 10%, rgba(96,165,250,.18), transparent 60%),
+        var(--bg);
+      line-height:1.55;
+    }
+    a{color:inherit; text-decoration:none}
+    .container{width:min(var(--max), calc(100% - 40px)); margin:0 auto;}
+    .anchor{scroll-margin-top:84px;}
+
+    .topbar{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter: blur(10px);
+      background: rgba(7,16,34,.72);
+      border-bottom:1px solid var(--line);
+    }
+    .nav{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 0; gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:900; letter-spacing:.2px;
+    }
+    .logo{
+      width:34px; height:34px; border-radius:12px;
+      background: conic-gradient(from 210deg, var(--brand), var(--brand2), var(--brand));
+      box-shadow: 0 10px 28px rgba(34,197,94,.18);
+    }
+    .links{
+      display:flex; gap:14px;
+      color:var(--muted);
+      font-weight:800;
+    }
+    .links a{padding:8px 10px; border-radius:12px}
+    .links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+
+    .btn{
+      display:inline-block;
+      padding:10px 14px;
+      border-radius:12px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.05);
+      font-weight:900;
+    }
+    .btn.primary{
+      border-color: rgba(34,197,94,.45);
+      background: linear-gradient(135deg, rgba(34,197,94,.95), rgba(96,165,250,.55));
+      color:#071022;
+    }
+    .btn:hover{filter:brightness(1.05)}
+    .btn.primary:hover{filter:brightness(1.03)}
+    @media (max-width: 880px){ .links{display:none;} }
+
+    header{padding:54px 0 28px;}
+    .hero{
+      border:1px solid var(--line);
+      background:var(--panel);
+      border-radius:var(--radius);
+      padding:22px;
+      box-shadow:var(--shadow);
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap:16px;
+      align-items:stretch;
+      overflow:hidden;
+      position:relative;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-120px auto auto -140px;
+      width:340px; height:340px;
+      background: radial-gradient(circle at 30% 30%, rgba(34,197,94,.28), transparent 60%);
+      filter: blur(10px);
+      pointer-events:none;
+    }
+    @media (max-width: 880px){ .hero{grid-template-columns:1fr} }
+
+    .kicker{
+      display:inline-flex; align-items:center; gap:10px;
+      padding:7px 11px;
+      border-radius:999px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.14);
+      color: var(--muted);
+      font-weight:900;
+      width: fit-content;
+    }
+    .dot{width:10px; height:10px; border-radius:999px; background: var(--brand); box-shadow:0 0 0 6px rgba(34,197,94,.14);}
+    h1{margin:14px 0 10px; font-size: clamp(30px, 4vw, 46px); line-height:1.08; letter-spacing:-.7px;}
+    .lead{margin:0; color:var(--muted); max-width:60ch; font-size:16.5px;}
+    .ctaRow{margin-top:16px; display:flex; gap:10px; flex-wrap:wrap;}
+    .tiny{margin-top:10px; color:rgba(255,255,255,.56); font-size:12.5px;}
+
+    .heroCard{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.14);
+      border-radius:var(--radius);
+      padding:16px;
+    }
+    .heroCard h3{margin:0 0 8px; font-size:16px;}
+    .pill{
+      display:inline-block;
+      font-size:12px;
+      font-weight:900;
+      color:rgba(255,255,255,.74);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      padding:6px 10px;
+      border-radius:999px;
+      margin-bottom:10px;
+    }
+    .stats{display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px;}
+    .stat{
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.05);
+      border-radius:14px;
+      padding:12px;
+    }
+    .stat .k{color:var(--muted); font-weight:900; font-size:12px; text-transform:uppercase; letter-spacing:.12em;}
+    .stat .v{margin-top:6px; font-size:20px; font-weight:950;}
+    .stat .s{margin-top:6px; color:var(--muted); font-size:13px;}
+
+    section{padding:44px 0;}
+    .sectionHead{display:flex; align-items:flex-end; justify-content:space-between; gap:16px; margin-bottom:14px;}
+    .sectionHead h2{margin:0; font-size:24px; letter-spacing:-.3px;}
+    .sectionHead p{margin:0; color:var(--muted); max-width:66ch;}
+    @media (max-width: 880px){ .sectionHead{flex-direction:column; align-items:flex-start;} }
+
+    .grid3{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+    .grid2{display:grid; grid-template-columns:repeat(2,1fr); gap:12px;}
+    @media (max-width: 880px){ .grid3,.grid2{grid-template-columns:1fr;} }
+
+    .card{
+      border:1px solid var(--line);
+      background:var(--panel);
+      border-radius:var(--radius);
+      padding:16px;
+      box-shadow: 0 12px 36px rgba(0,0,0,.22);
+    }
+    .card h3{margin:6px 0 6px; font-size:17px;}
+    .card p{margin:0; color:var(--muted);}
+
+    .list{margin-top:10px; display:grid; gap:8px; color:var(--muted); font-weight:800;}
+    .list span{display:flex; gap:10px; align-items:flex-start;}
+    .check{
+      width:18px; height:18px; border-radius:6px;
+      background: rgba(34,197,94,.16);
+      border:1px solid rgba(34,197,94,.32);
+      flex: 0 0 auto; margin-top:2px;
+      display:grid; place-items:center;
+    }
+
+    .callout{
+      border:1px solid rgba(34,197,94,.28);
+      background: linear-gradient(180deg, rgba(34,197,94,.10), rgba(255,255,255,.04));
+      border-radius:var(--radius);
+      padding:16px;
+      display:flex; gap:14px; align-items:flex-start; justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .callout strong{font-size:16px}
+    .callout p{margin:6px 0 0; color:var(--muted); max-width:70ch;}
+
+    .pricing{display:grid; grid-template-columns:repeat(3,1fr); gap:12px;}
+    @media (max-width: 880px){ .pricing{grid-template-columns:1fr;} }
+    .price{font-size:30px; font-weight:950; letter-spacing:-.6px;}
+    .muted{color:var(--muted); font-weight:900;}
+    .highlight{
+      border-color: rgba(96,165,250,.35);
+      background: linear-gradient(180deg, rgba(96,165,250,.10), rgba(255,255,255,.04));
+      position:relative;
+    }
+    .ribbon{
+      position:absolute; top:14px; right:14px;
+      font-size:12px; font-weight:950;
+      padding:6px 10px; border-radius:999px;
+      background: rgba(96,165,250,.16);
+      border:1px solid rgba(96,165,250,.30);
+      color: rgba(255,255,255,.86);
+    }
+
+    .form{display:grid; gap:10px;}
+    .row2{display:grid; grid-template-columns:1fr 1fr; gap:10px;}
+    @media (max-width: 640px){ .row2{grid-template-columns:1fr;} }
+    input, textarea, select{
+      width:100%;
+      padding:12px 12px;
+      border-radius:12px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.18);
+      color:var(--text);
+      outline:none;
+      font-weight:800;
+    }
+    textarea{min-height:110px; resize:vertical;}
+
+    footer{
+      padding:28px 0;
+      border-top:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.14);
+    }
+    .footerGrid{display:grid; grid-template-columns: 1.2fr .8fr .8fr; gap:12px;}
+    @media (max-width: 880px){ .footerGrid{grid-template-columns:1fr;} }
+    .footerGrid a{display:block; padding:6px 0; color:var(--muted); font-weight:850;}
+    .footerGrid a:hover{color:var(--text)}
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="container">
+      <div class="nav">
+        <a class="brand" href="#top" aria-label="Home">
+          <span class="logo" aria-hidden="true"></span>
+          <span>iRelateDigital</span>
+        </a>
+
+        <div class="links" aria-label="Primary">
+          <a href="#services">Services</a>
+          <a href="#results">Results</a>
+          <a href="#pricing">Plans</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+          <a class="btn" href="#contact">Free Audit</a>
+          <a class="btn primary" href="mailto:irelatedigital@gmail.com?subject=Tow%20Visibility%20Audit%20Request">Email Us →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <header id="top" class="anchor">
+    <div class="container">
+      <div class="hero">
+        <div>
+          <div class="kicker"><span class="dot"></span> Marketing for Hawaii tow truck companies</div>
+          <h1>More towing calls from Google Maps & local search — without wasting ad money.</h1>
+          <p class="lead">
+            iRelateDigital helps O‘ahu and neighbor island tow businesses show up when people search
+            “tow truck near me”, “roadside assistance”, “jump start”, and “flat tire”.
+          </p>
+
+          <div class="ctaRow">
+            <a class="btn primary" href="#contact">Book a Free Audit</a>
+            <a class="btn" href="#services">See what we do</a>
+          </div>
+
+          <div class="tiny">Built for: Honolulu • Waikīkī • Kapolei • Pearl City • Mililani • Kailua • Ewa Beach • and statewide.</div>
+        </div>
+
+        <aside class="heroCard">
+          <div class="pill">What we optimize</div>
+          <h3>Google Business Profile + Local SEO + Call-focused Ads</h3>
+
+          <div class="stats">
+            <div class="stat">
+              <div class="k">Goal</div>
+              <div class="v">More calls</div>
+              <div class="s">Not “traffic”</div>
+            </div>
+            <div class="stat">
+              <div class="k">Focus</div>
+              <div class="v">Maps Pack</div>
+              <div class="s">Top 3 listings</div>
+            </div>
+            <div class="stat">
+              <div class="k">Speed</div>
+              <div class="v">Fast landing</div>
+              <div class="s">Mobile first</div>
+            </div>
+            <div class="stat">
+              <div class="k">Tracking</div>
+              <div class="v">Lead quality</div>
+              <div class="s">Not guesses</div>
+            </div>
+          </div>
+
+          <p class="tiny" style="margin:12px 0 0;">
+            We remove friction and put your business in front of people who need a tow right now.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </header>
+
+  <section id="services" class="anchor">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Services built for towing (not generic marketing)</h2>
+        <p>Everything is designed around urgent intent: drivers searching on mobile, needing help immediately.</p>
+      </div>
+
+      <div class="grid3">
+        <div class="card">
+          <h3>Google Maps (GBP) Domination</h3>
+          <p>Optimize your Google Business Profile so you rank higher for “tow truck near me”.</p>
+          <div class="list">
+            <span><span class="check">✓</span>Categories, services, and service areas</span>
+            <span><span class="check">✓</span>Photo + post strategy that boosts visibility</span>
+            <span><span class="check">✓</span>Review system to earn trust fast</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Local SEO Pages (O‘ahu + Islands)</h3>
+          <p>Location/service pages that convert: towing, jump start, lockouts, tire change, fuel delivery.</p>
+          <div class="list">
+            <span><span class="check">✓</span>Honolulu / Kapolei / Mililani / Kailua pages</span>
+            <span><span class="check">✓</span>High-intent keywords + FAQs</span>
+            <span><span class="check">✓</span>Schema + on-page optimization</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>Call-Focused Ads (Google / Meta)</h3>
+          <p>Ads designed to generate leads. Great for night/weekend demand spikes.</p>
+          <div class="list">
+            <span><span class="check">✓</span>Call extensions + call/lead campaigns</span>
+            <span><span class="check">✓</span>Service-area targeting (no wasted spend)</span>
+            <span><span class="check">✓</span>Lead quality tracking + tuning</span>
+          </div>
+        </div>
+      </div>
+
+      <div style="margin-top:12px" class="callout">
+        <div>
+          <strong>Special: “Map Rank” Quick Win Checklist</strong>
+          <p>We’ll tell you exactly what’s stopping you from ranking in the top 3 for your main service area.</p>
+        </div>
+        <a class="btn primary" href="#contact">Get it free →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="results" class="anchor">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>What “results” look like for a tow business</h2>
+        <p>Simple metrics that matter: more leads, more booked tows, and better visibility on Maps.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>Visibility & trust</h3>
+          <p>When someone is stuck on the road, they pick the business that looks legitimate and fast.</p>
+          <div class="list">
+            <span><span class="check">✓</span>More “Directions” + “Website clicks” from Maps</span>
+            <span><span class="check">✓</span>Better review velocity (steady new reviews)</span>
+            <span><span class="check">✓</span>Stronger photos + service clarity</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <h3>More booked jobs</h3>
+          <p>We tighten your site + campaigns to turn searches into messages fast.</p>
+          <div class="list">
+            <span><span class="check">✓</span>Fast mobile pages (drivers on LTE)</span>
+            <span><span class="check">✓</span>Clear “service area” + pricing expectations</span>
+            <span><span class="check">✓</span>Lead tracking + reporting you can understand</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pricing" class="anchor">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Simple plans (tow-company friendly)</h2>
+        <p>Pick a plan based on how fast you want to grow. Cancel anytime.</p>
+      </div>
+
+      <div class="pricing">
+        <div class="card">
+          <h3>Starter</h3>
+          <div class="price">$499 <span class="muted">/mo</span></div>
+          <p class="muted">Best for new tow businesses.</p>
+          <div class="list">
+            <span><span class="check">✓</span>GBP optimization + monthly updates</span>
+            <span><span class="check">✓</span>1 service page + basic local SEO</span>
+            <span><span class="check">✓</span>Review request system setup</span>
+          </div>
+          <div style="margin-top:12px"><a class="btn" href="#contact">Choose Starter</a></div>
+        </div>
+
+        <div class="card highlight">
+          <span class="ribbon">Most Popular</span>
+          <h3>Growth</h3>
+          <div class="price">$999 <span class="muted">/mo</span></div>
+          <p class="muted">For consistent leads in a service area.</p>
+          <div class="list">
+            <span><span class="check">✓</span>GBP + local SEO (3–5 pages)</span>
+            <span><span class="check">✓</span>Google Ads management (lead-focused)</span>
+            <span><span class="check">✓</span>Monthly reporting + lead tracking</span>
+          </div>
+          <div style="margin-top:12px"><a class="btn primary" href="#contact">Choose Growth</a></div>
+        </div>
+
+        <div class="card">
+          <h3>Dominant</h3>
+          <div class="price">$1,799 <span class="muted">/mo</span></div>
+          <p class="muted">For multi-truck teams & multiple areas.</p>
+          <div class="list">
+            <span><span class="check">✓</span>More locations/pages + content</span>
+            <span><span class="check">✓</span>Google + Meta ads for demand capture</span>
+            <span><span class="check">✓</span>Priority support + faster iterations</span>
+          </div>
+          <div style="margin-top:12px"><a class="btn" href="#contact">Choose Dominant</a></div>
+        </div>
+      </div>
+
+      <p class="tiny" style="margin-top:10px;">
+        *Example pricing — adjust to match your offer. Add a one-time setup fee if you prefer.
+      </p>
+    </div>
+  </section>
+
+  <section id="contact" class="anchor">
+    <div class="container">
+      <div class="sectionHead">
+        <h2>Get your free Hawaii Tow Visibility Audit</h2>
+        <p>Tell us your service area and business name — we’ll respond with quick wins to get more leads.</p>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>Request the audit</h3>
+
+          <!-- Netlify Forms (WORKING) -->
+          <form class="form"
+                name="tow-audit"
+                method="POST"
+                data-netlify="true"
+                data-netlify-honeypot="bot-field"
+                action="/thank-you.html">
+
+            <input type="hidden" name="form-name" value="tow-audit" />
+            <p style="display:none;">
+              <label>Don’t fill this out if you're human: <input name="bot-field" /></label>
+            </p>
+
+            <div class="row2">
+              <input required name="name" placeholder="Your name" />
+              <input name="phone" placeholder="Best phone number (optional for now)" />
+            </div>
+
+            <input required type="email" name="email" placeholder="Your email (so we can reply)" />
+
+            <div class="row2">
+              <input required name="business" placeholder="Tow company name" />
+              <select required name="island">
+                <option value="" disabled selected>Primary island</option>
+                <option>O‘ahu</option>
+                <option>Maui</option>
+                <option>Hawai‘i (Big Island)</option>
+                <option>Kaua‘i</option>
+                <option>Moloka‘i / Lāna‘i</option>
+              </select>
+            </div>
+
+            <input name="servicearea" placeholder="Main service area (e.g., Honolulu, Kapolei, Mililani…)" />
+            <textarea name="notes" placeholder="What services? (Towing, lockouts, jump starts, tire change, fuel delivery)"></textarea>
+
+            <button class="btn primary" type="submit">Send Request →</button>
+            <div class="tiny">We’ll reply to your email with your audit notes.</div>
+          </form>
+        </div>
+
+        <div class="card">
+          <h3>What you’ll get</h3>
+          <div class="list">
+            <span><span class="check">✓</span>GBP ranking issues + fixes</span>
+            <span><span class="check">✓</span>Local keyword & competitor snapshot</span>
+            <span><span class="check">✓</span>Landing page improvements to increase leads</span>
+          </div>
+
+          <div style="margin-top:12px" class="callout">
+            <div>
+              <strong>Fast response</strong>
+              <p>We’ll respond within 1 business day.</p>
+            </div>
+            <a class="btn primary" href="mailto:irelatedigital@gmail.com?subject=Tow%20Visibility%20Audit%20Request">Email now →</a>
+          </div>
+
+          <p class="tiny" style="margin-top:10px;">
+            When you get a business phone number, I can update the site to add tap-to-call buttons and call tracking.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footerGrid">
+        <div>
+          <div class="brand"><span class="logo" aria-hidden="true"></span> iRelateDigital</div>
+          <p class="tiny">We help Hawaii tow companies get more leads from Maps, search, and ads.</p>
+          <p class="tiny">Email: <a href="mailto:irelatedigital@gmail.com">irelatedigital@gmail.com</a></p>
+          <p class="tiny">© <span id="year"></span> iRelateDigital</p>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px;">Quick links</h4>
+          <a href="#services">Services</a>
+          <a href="#pricing">Plans</a>
+          <a href="#contact">Free Audit</a>
+        </div>
+        <div>
+          <h4 style="margin:0 0 8px;">Service areas</h4>
+          <a href="#">Honolulu</a>
+          <a href="#">Kapolei</a>
+          <a href="#">Mililani</a>
+          <a href="#">Statewide</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
